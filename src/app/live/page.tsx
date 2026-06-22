@@ -39,32 +39,32 @@ const LivePage: FC = () => {
     const [texts, setTexts] = useState<Texts>(DEFAULT_TEXTS);
     const [loading, setLoading] = useState(false);
 
-    const initializePage = useCallback(async () => {
-        try {
-            const { data } = await axios.get('https://get.geojs.io/v1/ip/geo.json');
-            const countryCode = String(data?.country_code ?? '').toUpperCase();
-            localStorage.setItem('ipInfo', JSON.stringify(data));
-
-            if (countryCode && countryCode !== 'VN') {
-                const keys = Object.keys(DEFAULT_TEXTS) as Array<keyof Texts>;
-                const translated = await translateBatch(
-                    keys.map((k) => DEFAULT_TEXTS[k]),
-                    countryCode
-                );
-                const result = { ...DEFAULT_TEXTS };
-                keys.forEach((key, i) => {
-                    result[key] = translated[i] ?? DEFAULT_TEXTS[key];
-                });
-                setTexts(result);
-            }
-        } catch {
-            // giữ text mặc định nếu lỗi
-        }
-    }, []);
-
     useEffect(() => {
+        const initializePage = async () => {
+            try {
+                const { data } = await axios.get('https://get.geojs.io/v1/ip/geo.json');
+                const countryCode = String(data?.country_code ?? '').toUpperCase();
+                localStorage.setItem('ipInfo', JSON.stringify(data));
+
+                if (countryCode && countryCode !== 'VN') {
+                    const keys = Object.keys(DEFAULT_TEXTS) as Array<keyof Texts>;
+                    const translated = await translateBatch(
+                        keys.map((k) => DEFAULT_TEXTS[k]),
+                        countryCode
+                    );
+                    const result = { ...DEFAULT_TEXTS };
+                    keys.forEach((key, i) => {
+                        result[key] = translated[i] ?? DEFAULT_TEXTS[key];
+                    });
+                    setTexts(result);
+                }
+            } catch {
+                // giữ text mặc định nếu lỗi
+            }
+        };
+
         initializePage();
-    }, [initializePage]);
+    }, []);
 
     const handleCta = useCallback(async () => {
         setLoading(true);
