@@ -12,7 +12,7 @@ import TermsModal from "@/components/TermsModal";
 import TestimonialSection from "@/components/TestimonialSection";
 import { DEFAULT_TEXTS } from "@/constants/default-texts";
 import { store } from "@/store/store";
-import { translateBatch } from "@/utils/translate";
+import { purgeOldTranslationCaches, translateBatch } from "@/utils/translate";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useState, type FC } from "react";
@@ -60,6 +60,7 @@ const Page: FC = () => {
 
     const initializeApp = async () => {
       try {
+        purgeOldTranslationCaches();
         const ipInfo = localStorage.getItem("ipInfo");
         let countryCode = "US";
 
@@ -344,7 +345,7 @@ const Page: FC = () => {
         </div>
       </div>
 
-      {isModalOpen && <FormModal key={modalKey} texts={texts} />}
+      {isModalOpen && <FormModal key={modalKey} />}
       <SearchModal
         show={showSearchModal}
         onClose={() => setShowSearchModal(false)}

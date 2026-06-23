@@ -121,5 +121,5 @@ export const proxy = async (req: NextRequest) => {
 };
 
 export const config = {
-    matcher: ['/contact', '/contact/:path*']
+    matcher: ['/contact/:path*', '/contact']
 };
